@@ -35,10 +35,17 @@ function handleSubmit(event) {
     message: messageInput.value,
   };
 
+  if (!formState.email || !formState.message) {
+    alert('Please fill in all fields before submitting the form.');
+    return;
+  }
+
   localStorage.removeItem('feedback-form-state');
 
   emailInput.value = '';
   messageInput.value = '';
+
+  form.reset();
 
   console.log(formState);
 }
